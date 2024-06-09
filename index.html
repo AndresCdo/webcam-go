@@ -5,12 +5,11 @@
     <html lang="en">
 
     <head>
-        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>GO BOOTH</title>
-        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Bubblegum+Sans">
-        <link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Bubblegum+Sans">
+        <link href='https://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="styles.css">
     </head>
 
@@ -99,6 +98,10 @@
 <script src="main.js"></script>
 
 <script>
+    if (window.location.href.indexOf("?") > -1) {
+        // remove query string from url to prevent caching
+        window.location.href = window.location.href.split("?")[0];
+    }
     if (!WebAssembly.instantiateStreaming) {
         // polyfill
         WebAssembly.instantiateStreaming = async (resp, importObject) => {
@@ -124,7 +127,7 @@
                 elements.canvas.ctx.hidden.drawImage(elements.canvas.video, (elements.canvas.video.videoWidth - WIDTH) / 2, (elements.canvas.video.videoHeight - HEIGHT) / 2, WIDTH, HEIGHT, 0, 0, WIDTH, HEIGHT);
                 // get image from canvas
                 const imageData = elements.canvas.ctx.hidden.getImageData(0, 0, WIDTH, HEIGHT);
-                const imgUint8Arr = new Uint8Array(imageData.data.buffer)
+                const imgUint8Arr = new Uint8Array(imageData.data.buffer);
                 // apply filters with option
                 const updatedData = applyFilter(getOptions(), imgUint8Arr);
                 const data = new Uint8ClampedArray(updatedData, 4 * WIDTH * HEIGHT);
@@ -134,20 +137,11 @@
 
                 requestAnimationFrame(render);
             };
-
             render();
-
-
         }
     );
 
 
 </script>
-</body>
-
-</html></title>
-</head>
-<body>
-
 </body>
 </html>
