@@ -1,5 +1,3 @@
-// Test file for pixel.go
-
 package filter_test
 
 import (

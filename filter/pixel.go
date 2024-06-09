@@ -1,12 +1,3 @@
-// Description: This file contains the implementation of the pixel filter.
-// The pixel filter is a simple filter that applies a filter to an image.
-// The filter can be one of the following:
-// - Grey: Converts the image to greyscale.
-// - Invert: Inverts the colors of the image.
-// - Noise: Adds random noise to the image.
-// - Red: Sets the blue and green channels to 0, making the image red.
-// The filter is applied to the image by iterating over the pixels and applying the filter to each pixel.
-
 package filter
 
 import (
