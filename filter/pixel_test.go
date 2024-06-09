@@ -1,14 +1,16 @@
 package filter_test
 
 import (
-	"github.com/aarushik93/wasm-webcam/filter"
-	"github.com/stretchr/testify/assert"
 	"testing"
+
+	"filter/filter"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestMakeGrey(t *testing.T) {
-	pixels := make(filter.Pixels, 4, 4)
-	expected := make(filter.Pixels, 4, 4)
+	pixels := make(filter.Pixels, 4)
+	expected := make(filter.Pixels, 4)
 
 	pixels[0] = 150
 	pixels[3] = 20
@@ -24,8 +26,8 @@ func TestMakeGrey(t *testing.T) {
 }
 
 func TestInvert(t *testing.T) {
-	pixels := make(filter.Pixels, 4, 4)
-	expected := make(filter.Pixels, 4, 4)
+	pixels := make(filter.Pixels, 4)
+	expected := make(filter.Pixels, 4)
 
 	pixels[0] = 150
 	pixels[1] = 100
@@ -43,13 +45,12 @@ func TestInvert(t *testing.T) {
 }
 
 func TestNoise(t *testing.T) {
-	pixels := make(filter.Pixels, 4, 4)
+	pixels := make(filter.Pixels, 4)
 
 	pixels[0] = 150
 	pixels[1] = 100
 	pixels[2] = 50
 	pixels[3] = 20
-
 
 	pixels.MakeNoise()
 
@@ -60,8 +61,8 @@ func TestNoise(t *testing.T) {
 }
 
 func TestRed(t *testing.T) {
-	pixels := make(filter.Pixels, 4, 4)
-	expected := make(filter.Pixels, 4, 4)
+	pixels := make(filter.Pixels, 4)
+	expected := make(filter.Pixels, 4)
 
 	pixels[0] = 150
 	pixels[1] = 100

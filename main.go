@@ -1,7 +1,9 @@
+//go:build js && wasm
+
 package main
 
 import (
-	"github.com/aarushik93/wasm-webcam/filter"
+	"filter/filter"
 	"syscall/js"
 )
 
@@ -35,7 +37,6 @@ func applyFilter(this js.Value, args []js.Value) interface{} {
 
 	return buf
 }
-
 
 func main() {
 	done := make(chan struct{}, 0)
